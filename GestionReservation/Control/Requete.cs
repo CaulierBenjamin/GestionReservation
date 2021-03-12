@@ -6,6 +6,7 @@ using GestionReservation.Model;
 
 
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace GestionReservation.Control
 
@@ -14,52 +15,61 @@ namespace GestionReservation.Control
     public class Requete
     {
         private static string ip = "localhost";
-        private static string bdd = "EastMaster";
-        private static string id = "sa";
-        private static string password = "#benjamin0";
+        private static string bdd = "eastmaster";
+        private static string id = "root";
+        private static string password = "root";
 
-        public static SqlConnection Connexion()
+        public static MySqlConnection Connexion()
         {
             try
             {
-                SqlConnection connection1 = new SqlConnection(@"Data Source="+ip+";Initial Catalog="+bdd+";User ID="+id+";Password="+password);
+                MySqlConnection connection1 = new MySqlConnection($"SERVER={ip}; DATABASE={bdd}; UID={id}; PASSWORD={password}");
                 connection1.Open();
                 return connection1;
             }
-            catch (Exception e)
+            catch ( Exception e)
             {
                 Console.WriteLine(e);
-                MessageBox.Show("Connexion impossible au serveur");
+                MessageBox.Show("Connexion impossible au serveur" + e.ToString());
                 throw;
             }
         }
         
         public static List<Compte> ListeDesComptes()
         {
-            SqlConnection connection1 = Connexion();
-
-            SqlCommand readerselect = new SqlCommand("VueCompteSalle", connection1);
-            SqlDataReader reader = readerselect.ExecuteReader();
-           
-            List<Compte> liste = new List<Compte>();
-            while(reader.Read())
+            try
             {
-                Compte compte1 = new Compte(Int16.Parse(reader["id"].ToString()), reader["nom"].ToString(),
-                    reader["prenom"].ToString(), reader["mail"].ToString(), reader["telephone"].ToString(),
-                    reader["adresserue"].ToString(), reader["adresseville"].ToString(), reader["adressecp"].ToString());
-                liste.Add(compte1);
+                MySqlConnection connection1 = Connexion();
+
+                MySqlCommand readerselect = new MySqlCommand("VueCompteSalle", connection1);
+                MySqlDataReader reader = readerselect.ExecuteReader();
+           
+                List<Compte> liste = new List<Compte>();
+                while(reader.Read())
+                {
+                    Compte compte1 = new Compte(Int16.Parse(reader["id"].ToString()), reader["nom"].ToString(),
+                        reader["prenom"].ToString(), reader["mail"].ToString(), reader["telephone"].ToString(),
+                        reader["adresserue"].ToString(), reader["adresseville"].ToString(), reader["adressecp"].ToString());
+                    liste.Add(compte1);
+                }
+                return liste;
             }
-            return liste;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
 
         public static void SupprimerCompte(Compte item)
         {
-            SqlConnection connection1 = Connexion();
+            MySqlConnection connection1 = Connexion();
             
-            SqlCommand cmd = new SqlCommand("SupprimmerCompteSalle", connection1);
+            MySqlCommand cmd = new MySqlCommand("call SupprimmerCompteSalle", connection1);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@prmId", SqlDbType.Int).Value = item.getId();
+            cmd.Parameters.Add("prmId", MySqlDbType.Int16).Value = item.getId();
             
             try
             {
@@ -73,45 +83,44 @@ namespace GestionReservation.Control
 
         public static void ModifierCompte(Compte item)
         {
-            SqlConnection connection1 = Connexion();
-            
-            SqlCommand cmd = new SqlCommand("ModifierCompteSalle", connection1);
+            MySqlConnection connection1 = Connexion();
+            try{
+            MySqlCommand cmd = new MySqlCommand("ModifierCompteSalle", connection1);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@prmId", SqlDbType.Int).Value = item.getId();
-            cmd.Parameters.Add("@prmNom", SqlDbType.NVarChar).Value = item.getNom();
-            cmd.Parameters.Add("@prmPrenom", SqlDbType.NVarChar).Value = item.getPrenom();
-            cmd.Parameters.Add("@prmMail", SqlDbType.NVarChar).Value = item.getMail();
-            cmd.Parameters.Add("@prmTelelphone", SqlDbType.NVarChar).Value = item.getTelephone();
-            cmd.Parameters.Add("@prmAdresserue", SqlDbType.NVarChar).Value = item.getAdresseRue();
-            cmd.Parameters.Add("@prmAdresseVille", SqlDbType.NVarChar).Value = item.getAdresseVille();
-            cmd.Parameters.Add("@prmAdresseCp", SqlDbType.NVarChar).Value = item.getAdresseCp();
+            cmd.Parameters.Add("prmId", MySqlDbType.Int16).Value = item.getId();
+            cmd.Parameters.Add("prmNom", MySqlDbType.VarChar).Value = item.getNom();
+            cmd.Parameters.Add("prmPrenom", MySqlDbType.VarChar).Value = item.getPrenom();
+            cmd.Parameters.Add("prmMail", MySqlDbType.VarChar).Value = item.getMail();
+            cmd.Parameters.Add("prmTelelphone", MySqlDbType.VarChar).Value = item.getTelephone();
+            cmd.Parameters.Add("prmAdresserue", MySqlDbType.VarChar).Value = item.getAdresseRue();
+            cmd.Parameters.Add("prmAdresseVille", MySqlDbType.VarChar).Value = item.getAdresseVille();
+            cmd.Parameters.Add("prmAdresseCp", MySqlDbType.VarChar).Value = item.getAdresseCp();
 
-            try
-            {
+            
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("La requete ne c'est pas bien passé");
+                MessageBox.Show("La requete ne c'est pas bien passé" + e);
             }
             
         }
 
         public static void AjouterCompte(Compte item)
         {
-            SqlConnection connection1 = Connexion();
+            MySqlConnection connection1 = Connexion();
 
-            SqlCommand cmd = new SqlCommand("AjoutCompteSalle", connection1);
+            MySqlCommand cmd = new MySqlCommand("call AjoutCompteSalle", connection1);
             cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@prmNom", SqlDbType.NVarChar).Value = item.getNom();
-            cmd.Parameters.Add("@prmPrenom", SqlDbType.NVarChar).Value = item.getPrenom();
-            cmd.Parameters.Add("@prmMail", SqlDbType.NVarChar).Value = item.getMail();
-            cmd.Parameters.Add("@prmTelelphone", SqlDbType.NVarChar).Value = item.getTelephone();
-            cmd.Parameters.Add("@prmAdresserue", SqlDbType.NVarChar).Value = item.getAdresseRue();
-            cmd.Parameters.Add("@prmAdresseVille", SqlDbType.NVarChar).Value = item.getAdresseVille();
-            cmd.Parameters.Add("@prmAdressecp", SqlDbType.NVarChar).Value = item.getAdresseCp();
+            
+            cmd.Parameters.Add("prmNom", MySqlDbType.VarChar).Value = item.getNom();
+            cmd.Parameters.Add("prmPrenom", MySqlDbType.VarChar).Value = item.getPrenom();
+            cmd.Parameters.Add("prmMail", MySqlDbType.VarChar).Value = item.getMail();
+            cmd.Parameters.Add("prmTelelphone", MySqlDbType.VarChar).Value = item.getTelephone();
+            cmd.Parameters.Add("prmAdresserue", MySqlDbType.VarChar).Value = item.getAdresseRue();
+            cmd.Parameters.Add("prmAdresseVille", MySqlDbType.VarChar).Value = item.getAdresseVille();
+            cmd.Parameters.Add("prmAdressecp", MySqlDbType.VarChar).Value = item.getAdresseCp();
 
             try
             {
@@ -125,15 +134,15 @@ namespace GestionReservation.Control
 
         public static List<Reunion> SelectSalleReunion(string prmDate , int nombrePersonne)
         {
-            SqlConnection conn = Connexion();
+            MySqlConnection conn = Connexion();
 
-            SqlCommand cmd = new SqlCommand("SelectReservation", conn);
+            MySqlCommand cmd = new MySqlCommand("call SelectReservation", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@prmType", SqlDbType.NVarChar).Value = "reunion";
-            cmd.Parameters.Add("@prmDate", SqlDbType.NVarChar).Value = prmDate ;
-            cmd.Parameters.Add("@prmNombre", SqlDbType.Int).Value = nombrePersonne ;
+            cmd.Parameters.Add("prmType", MySqlDbType.VarChar).Value = "reunion";
+            cmd.Parameters.Add("prmDate", MySqlDbType.VarChar).Value = prmDate ;
+            cmd.Parameters.Add("prmNombre", MySqlDbType.Int16).Value = nombrePersonne ;
             
-            SqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader = cmd.ExecuteReader();
            
             List<Reunion> liste = new List<Reunion>();
             while(reader.Read())
@@ -147,15 +156,15 @@ namespace GestionReservation.Control
         
         public static List<Mariage> SelectSalleMariage(string prmDate , int nombrePersonne)
         {
-            SqlConnection conn = Connexion();
+            MySqlConnection conn = Connexion();
 
-            SqlCommand cmd = new SqlCommand("SelectReservation", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@prmType", SqlDbType.NVarChar).Value = "mariage";
-            cmd.Parameters.Add("@prmDate", SqlDbType.NVarChar).Value = prmDate ;
-            cmd.Parameters.Add("@prmNombre", SqlDbType.Int).Value = nombrePersonne ;
+            MySqlCommand cmd = new MySqlCommand("call SelectReservation", conn);
+            cmd.CommandType = CommandType.StoredProcedure; 
+            cmd.Parameters.Add("prmType", MySqlDbType.VarChar).Value = "mariage";
+            cmd.Parameters.Add("prmDate", MySqlDbType.VarChar).Value = prmDate ;
+            cmd.Parameters.Add("prmNombre", MySqlDbType.Int16).Value = nombrePersonne ;
             
-            SqlDataReader reader = cmd.ExecuteReader();
+            MySqlDataReader reader = cmd.ExecuteReader();
            
             List<Mariage> liste = new List<Mariage>();
             while(reader.Read())
@@ -169,15 +178,15 @@ namespace GestionReservation.Control
 
         public static void AjouterReservationMariage(int prmIdSalle , int prmIdCompte , string prmDate , int prmNombre)
         {
-            SqlConnection connection1 = Connexion();
+            MySqlConnection connection1 = Connexion();
 
-            SqlCommand cmd = new SqlCommand("AjoutReservation", connection1);
+            MySqlCommand cmd = new MySqlCommand("call AjoutReservation", connection1);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@prmIdSalle", SqlDbType.Int).Value = prmIdSalle;
-            cmd.Parameters.Add("@prmIdCompte", SqlDbType.Int).Value = prmIdCompte;
-            cmd.Parameters.Add("@prmDate", SqlDbType.NVarChar).Value = prmDate;
-            cmd.Parameters.Add("@prmNombre", SqlDbType.Int).Value = prmNombre;
+            cmd.Parameters.Add("prmIdSalle", MySqlDbType.Int16).Value = prmIdSalle;
+            cmd.Parameters.Add("prmIdCompte", MySqlDbType.Int16).Value = prmIdCompte;
+            cmd.Parameters.Add("prmDate", MySqlDbType.VarChar).Value = prmDate;
+            cmd.Parameters.Add("prmNombre", MySqlDbType.Int16).Value = prmNombre;
                 
             try
             {
@@ -192,16 +201,16 @@ namespace GestionReservation.Control
         
         public static void AjouterReservationReunion(List<Reunion>liste, int prmIdCompte , string prmDate , int prmNombre)
         {
-            SqlConnection connection1 = Connexion();
+            MySqlConnection connection1 = Connexion();
             foreach (Reunion item in liste)
             {
-                SqlCommand cmd = new SqlCommand("AjoutReservation", connection1);
+                MySqlCommand cmd = new MySqlCommand("call AjoutReservation", connection1);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add("@prmIdSalle", SqlDbType.Int).Value = item.getId();
-                cmd.Parameters.Add("@prmIdCompte", SqlDbType.Int).Value = prmIdCompte;
-                cmd.Parameters.Add("@prmDate", SqlDbType.NVarChar).Value = prmDate;
-                cmd.Parameters.Add("@prmNombre", SqlDbType.Int).Value = prmNombre;
+                cmd.Parameters.Add("prmIdSalle", MySqlDbType.Int16).Value = item.getId();
+                cmd.Parameters.Add("prmIdCompte", MySqlDbType.Int16).Value = prmIdCompte;
+                cmd.Parameters.Add("prmDate", MySqlDbType.VarChar).Value = prmDate;
+                cmd.Parameters.Add("prmNombre", MySqlDbType.Int16).Value = prmNombre;
                 
                 try
                 {

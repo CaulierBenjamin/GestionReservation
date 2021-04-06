@@ -6,15 +6,17 @@ namespace GestionReservation.Model
     {
         private int idCompte;
         private int idSalle;
-        private DateTime dateRes;
+        private string dateRes;
         private int nombre;
+        private DateTime dateCle;
 
-        public Reservation(int idCompte, int idSalle, DateTime dateRes, int nombre)
+        public Reservation(int idCompte, int idSalle, string dateRes, int nombre , DateTime dateCle)
         {
             this.idCompte = idCompte;
             this.idSalle = idSalle;
             this.dateRes = dateRes;
             this.nombre = nombre;
+            this.dateCle = dateCle;
         }
 
         public int getIdCompte()
@@ -27,7 +29,7 @@ namespace GestionReservation.Model
             return this.idSalle;
         }
 
-        public DateTime getDateRes()
+        public string getDateRes()
         {
             return this.dateRes;
         }
@@ -35,6 +37,16 @@ namespace GestionReservation.Model
         public int getNombre()
         {
             return this.nombre;
+        }
+
+        public DateTime getDateCle()
+        {
+            return this.dateCle;
+        }
+
+        public override string ToString()
+        {
+            return "nombre :" + nombre + "/date : " + dateRes;
         }
     }
 }

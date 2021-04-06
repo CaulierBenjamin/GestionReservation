@@ -58,7 +58,7 @@ namespace GestionReservation.Vue
             this.ListCompte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.ListCompte.FormattingEnabled = true;
             this.ListCompte.ItemHeight = 25;
-            this.ListCompte.Location = new System.Drawing.Point(62, 41);
+            this.ListCompte.Location = new System.Drawing.Point(32, 42);
             this.ListCompte.Name = "ListCompte";
             this.ListCompte.Size = new System.Drawing.Size(219, 579);
             this.ListCompte.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace GestionReservation.Vue
             // 
             // textBoxNom
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(463, 135);
+            this.textBoxNom.Location = new System.Drawing.Point(323, 139);
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(153, 20);
             this.textBoxNom.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace GestionReservation.Vue
             // labelNom
             // 
             this.labelNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelNom.Location = new System.Drawing.Point(463, 106);
+            this.labelNom.Location = new System.Drawing.Point(323, 110);
             this.labelNom.Name = "labelNom";
             this.labelNom.Size = new System.Drawing.Size(152, 18);
             this.labelNom.TabIndex = 3;
@@ -83,7 +83,7 @@ namespace GestionReservation.Vue
             // labelPrenom
             // 
             this.labelPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelPrenom.Location = new System.Drawing.Point(462, 190);
+            this.labelPrenom.Location = new System.Drawing.Point(322, 194);
             this.labelPrenom.Name = "labelPrenom";
             this.labelPrenom.Size = new System.Drawing.Size(152, 18);
             this.labelPrenom.TabIndex = 5;
@@ -91,7 +91,7 @@ namespace GestionReservation.Vue
             // 
             // textBoxPrenom
             // 
-            this.textBoxPrenom.Location = new System.Drawing.Point(462, 219);
+            this.textBoxPrenom.Location = new System.Drawing.Point(322, 223);
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(153, 20);
             this.textBoxPrenom.TabIndex = 4;
@@ -99,7 +99,7 @@ namespace GestionReservation.Vue
             // labelTelephone
             // 
             this.labelTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelTelephone.Location = new System.Drawing.Point(463, 355);
+            this.labelTelephone.Location = new System.Drawing.Point(323, 359);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(152, 18);
             this.labelTelephone.TabIndex = 9;
@@ -107,7 +107,7 @@ namespace GestionReservation.Vue
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(463, 384);
+            this.textBoxTelephone.Location = new System.Drawing.Point(323, 388);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(153, 20);
             this.textBoxTelephone.TabIndex = 8;
@@ -115,7 +115,7 @@ namespace GestionReservation.Vue
             // labelMail
             // 
             this.labelMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelMail.Location = new System.Drawing.Point(464, 271);
+            this.labelMail.Location = new System.Drawing.Point(324, 275);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(152, 18);
             this.labelMail.TabIndex = 7;
@@ -123,7 +123,7 @@ namespace GestionReservation.Vue
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(464, 300);
+            this.textBoxMail.Location = new System.Drawing.Point(324, 304);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(153, 20);
             this.textBoxMail.TabIndex = 6;
@@ -131,7 +131,7 @@ namespace GestionReservation.Vue
             // labelAdresseVille
             // 
             this.labelAdresseVille.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelAdresseVille.Location = new System.Drawing.Point(716, 190);
+            this.labelAdresseVille.Location = new System.Drawing.Point(576, 194);
             this.labelAdresseVille.Name = "labelAdresseVille";
             this.labelAdresseVille.Size = new System.Drawing.Size(152, 18);
             this.labelAdresseVille.TabIndex = 13;
@@ -139,7 +139,7 @@ namespace GestionReservation.Vue
             // 
             // textBoxAdresseVille
             // 
-            this.textBoxAdresseVille.Location = new System.Drawing.Point(716, 219);
+            this.textBoxAdresseVille.Location = new System.Drawing.Point(576, 223);
             this.textBoxAdresseVille.Name = "textBoxAdresseVille";
             this.textBoxAdresseVille.Size = new System.Drawing.Size(153, 20);
             this.textBoxAdresseVille.TabIndex = 12;
@@ -147,7 +147,7 @@ namespace GestionReservation.Vue
             // labelAdresseRue
             // 
             this.labelAdresseRue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelAdresseRue.Location = new System.Drawing.Point(717, 106);
+            this.labelAdresseRue.Location = new System.Drawing.Point(577, 110);
             this.labelAdresseRue.Name = "labelAdresseRue";
             this.labelAdresseRue.Size = new System.Drawing.Size(152, 18);
             this.labelAdresseRue.TabIndex = 11;
@@ -155,7 +155,7 @@ namespace GestionReservation.Vue
             // 
             // textBoxAdresseRue
             // 
-            this.textBoxAdresseRue.Location = new System.Drawing.Point(717, 135);
+            this.textBoxAdresseRue.Location = new System.Drawing.Point(577, 139);
             this.textBoxAdresseRue.Name = "textBoxAdresseRue";
             this.textBoxAdresseRue.Size = new System.Drawing.Size(153, 20);
             this.textBoxAdresseRue.TabIndex = 10;
@@ -163,7 +163,7 @@ namespace GestionReservation.Vue
             // labelAdresseCp
             // 
             this.labelAdresseCp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.labelAdresseCp.Location = new System.Drawing.Point(718, 271);
+            this.labelAdresseCp.Location = new System.Drawing.Point(578, 275);
             this.labelAdresseCp.Name = "labelAdresseCp";
             this.labelAdresseCp.Size = new System.Drawing.Size(152, 18);
             this.labelAdresseCp.TabIndex = 15;
@@ -171,7 +171,7 @@ namespace GestionReservation.Vue
             // 
             // textBoxAdresseCp
             // 
-            this.textBoxAdresseCp.Location = new System.Drawing.Point(718, 300);
+            this.textBoxAdresseCp.Location = new System.Drawing.Point(578, 304);
             this.textBoxAdresseCp.Name = "textBoxAdresseCp";
             this.textBoxAdresseCp.Size = new System.Drawing.Size(153, 20);
             this.textBoxAdresseCp.TabIndex = 14;
@@ -179,7 +179,7 @@ namespace GestionReservation.Vue
             // btnNouveauCompte
             // 
             this.btnNouveauCompte.AccessibleDescription = "";
-            this.btnNouveauCompte.Location = new System.Drawing.Point(462, 38);
+            this.btnNouveauCompte.Location = new System.Drawing.Point(322, 42);
             this.btnNouveauCompte.Name = "btnNouveauCompte";
             this.btnNouveauCompte.Size = new System.Drawing.Size(197, 23);
             this.btnNouveauCompte.TabIndex = 0;
@@ -188,7 +188,7 @@ namespace GestionReservation.Vue
             // 
             // btnCreer
             // 
-            this.btnCreer.Location = new System.Drawing.Point(463, 457);
+            this.btnCreer.Location = new System.Drawing.Point(323, 461);
             this.btnCreer.Name = "btnCreer";
             this.btnCreer.Size = new System.Drawing.Size(301, 63);
             this.btnCreer.TabIndex = 16;
@@ -198,7 +198,7 @@ namespace GestionReservation.Vue
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(463, 457);
+            this.btnModifier.Location = new System.Drawing.Point(323, 461);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(134, 63);
             this.btnModifier.TabIndex = 17;
@@ -209,7 +209,7 @@ namespace GestionReservation.Vue
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(630, 457);
+            this.btnSupprimer.Location = new System.Drawing.Point(490, 461);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(134, 63);
             this.btnSupprimer.TabIndex = 18;
@@ -220,7 +220,7 @@ namespace GestionReservation.Vue
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(801, 459);
+            this.btnSelect.Location = new System.Drawing.Point(661, 463);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(126, 60);
             this.btnSelect.TabIndex = 19;
@@ -232,7 +232,7 @@ namespace GestionReservation.Vue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 640);
+            this.ClientSize = new System.Drawing.Size(805, 640);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnModifier);

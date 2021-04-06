@@ -31,7 +31,7 @@ namespace GestionReservation.Vue
 
         }
         
-        private void Raffraichir()
+        private void raffraichir()
         {
             
             int nombrePersonne = int.Parse(textBoxNombrePersonnes.Text);
@@ -59,7 +59,7 @@ namespace GestionReservation.Vue
                     listBox.SelectionMode = SelectionMode.One;
                     labelSalle.Text = "Salle Mariage";
                 }
-
+                
                 try
                 {
                     listBox.SetSelected(0,false);
@@ -73,19 +73,30 @@ namespace GestionReservation.Vue
             }
         }
 
+        private void raffraichirReservation()
+        {
+            List<Reservation> liste = new List<Reservation>();
+            liste = Requete.SelectReservation(_compte.getId());
+                
+            listBoxReservation.DataSource = liste;
+            listBoxReservation.DisplayMember = "";
+            listBoxReservation.SelectionMode = SelectionMode.One;
+        }
+        
+
         private void btnValider_Click(object sender, EventArgs e)
         {
             
             if (radioBtnMariage.Checked && int.Parse(textBoxNombrePersonnes.Text) > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("test", "test", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Êtes-vous sûr de réservé", "Ajout réservation", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     string date = dateTimePicker.Text;
                     Mariage mariage = (Mariage) listBox.SelectedItem;
                     Requete.AjouterReservationMariage(mariage.getId(), _compte.getId(), date,
                         int.Parse(textBoxNombrePersonnes.Text));
-                    Raffraichir();
+                    raffraichir();
                 }
             }
 
@@ -99,16 +110,14 @@ namespace GestionReservation.Vue
                     nombrePersonne += item.getNbrPersonne();
                     liste.Add(item);
                 }
-
-                MessageBox.Show(nombrePersonne.ToString());
+                
                 if (nombrePersonne >= int.Parse(textBoxNombrePersonnes.Text))
                 {
-                    DialogResult dialogResult = MessageBox.Show("test", "test", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Êtes-vous sûr de réservé", "Ajout réservation", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                    
                         Requete.AjouterReservationReunion(liste , _compte.getId(),date,int.Parse(textBoxNombrePersonnes.Text));
-                        Raffraichir();
+                        raffraichir();
                     }
                 }
                 else
@@ -122,22 +131,33 @@ namespace GestionReservation.Vue
 
         private  void btnRecherche_Click(object sender, EventArgs e)
         {
-            Raffraichir();
+            raffraichir();
         }
         
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            Raffraichir();
+            raffraichir();
         }
         
         private void radioBtnReunion_CheckedChanged(object sender, EventArgs e)
         {
-            Raffraichir();
+            raffraichir();
         }
 
         private void radioBtnMariage_CheckedChanged(object sender, EventArgs e)
         {
-            Raffraichir();
+            raffraichir();
+        }
+
+        private void btnRaffraichirReservation_Click(object sender, EventArgs e)
+        {
+            raffraichirReservation();
+        }
+
+        private void btnSupprimerReservation_Click(object sender, EventArgs e)
+        {
+            Reservation item = (Reservation) listBoxReservation.SelectedItem;
+            Requete.SupprimerReservation(item);
         }
     }
 }

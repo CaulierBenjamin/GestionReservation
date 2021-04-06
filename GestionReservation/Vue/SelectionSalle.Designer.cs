@@ -53,6 +53,10 @@ namespace GestionReservation.Vue
             this.btnRecherche = new System.Windows.Forms.Button();
             this.labelSalle = new System.Windows.Forms.Label();
             this.btnValider = new System.Windows.Forms.Button();
+            this.listBoxReservation = new System.Windows.Forms.ListBox();
+            this.labelRes = new System.Windows.Forms.Label();
+            this.btnRaffraichirReservation = new System.Windows.Forms.Button();
+            this.btnSupprimerReservation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // radioBtnReunion
@@ -267,11 +271,54 @@ namespace GestionReservation.Vue
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
+            // listBoxReservation
+            // 
+            this.listBoxReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.listBoxReservation.FormattingEnabled = true;
+            this.listBoxReservation.ItemHeight = 24;
+            this.listBoxReservation.Location = new System.Drawing.Point(455, 44);
+            this.listBoxReservation.Name = "listBoxReservation";
+            this.listBoxReservation.Size = new System.Drawing.Size(272, 148);
+            this.listBoxReservation.TabIndex = 22;
+            // 
+            // labelRes
+            // 
+            this.labelRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labelRes.Location = new System.Drawing.Point(455, 9);
+            this.labelRes.Name = "labelRes";
+            this.labelRes.Size = new System.Drawing.Size(106, 26);
+            this.labelRes.TabIndex = 23;
+            this.labelRes.Text = "Reservation :";
+            // 
+            // btnRaffraichirReservation
+            // 
+            this.btnRaffraichirReservation.Location = new System.Drawing.Point(456, 206);
+            this.btnRaffraichirReservation.Name = "btnRaffraichirReservation";
+            this.btnRaffraichirReservation.Size = new System.Drawing.Size(125, 30);
+            this.btnRaffraichirReservation.TabIndex = 24;
+            this.btnRaffraichirReservation.Text = "Raffraichir";
+            this.btnRaffraichirReservation.UseVisualStyleBackColor = true;
+            this.btnRaffraichirReservation.Click += new System.EventHandler(this.btnRaffraichirReservation_Click);
+            // 
+            // btnSupprimerReservation
+            // 
+            this.btnSupprimerReservation.Location = new System.Drawing.Point(602, 206);
+            this.btnSupprimerReservation.Name = "btnSupprimerReservation";
+            this.btnSupprimerReservation.Size = new System.Drawing.Size(125, 30);
+            this.btnSupprimerReservation.TabIndex = 25;
+            this.btnSupprimerReservation.Text = "Supprimer";
+            this.btnSupprimerReservation.UseVisualStyleBackColor = true;
+            this.btnSupprimerReservation.Click += new System.EventHandler(this.btnSupprimerReservation_Click);
+            // 
             // SelectionSalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 637);
+            this.ClientSize = new System.Drawing.Size(755, 637);
+            this.Controls.Add(this.btnSupprimerReservation);
+            this.Controls.Add(this.btnRaffraichirReservation);
+            this.Controls.Add(this.labelRes);
+            this.Controls.Add(this.listBoxReservation);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.labelSalle);
             this.Controls.Add(this.btnRecherche);
@@ -299,6 +346,13 @@ namespace GestionReservation.Vue
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btnRaffraichirReservation;
+        private System.Windows.Forms.Button btnSupprimerReservation;
+        private System.Windows.Forms.Label labelRes;
+        private System.Windows.Forms.Label label8;
+
+        private System.Windows.Forms.ListBox listBoxReservation;
 
         private System.Windows.Forms.Button btnValider;
 

@@ -1,0 +1,75 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+
+
+Salle <|-- Reunion
+Salle <|-- Mariage
+
+class Reservation{
+
+- int idCompte;
+- int idSalle;
+- string dateRes;
+- int nombre;
+- DateTime dateCle;
+
++ Reservation(int idCompte, int idSalle, string dateRes
+ int nombre , DateTime dateCle)
++ int getIdCompte()
++ int getIdSalle()
++ string getDateRes()
++ int getNombre()
++ DateTime getDateCle()
++ override string ToString()
+}
+
+class Compte{
+- int id;
+- string nom;
+- string prenom;
+- string mail;
+- string telephone;
+- string adresseRue;
+- string adresseVille;
+- string adresseCp;
+
++ Comte(int id, string nom, string prenom, string mail,
+ string telephone, string adresseRue, string adresseVille, string adresseCp)
++ int getId()
++ string getNom()
++ string getPrenom()
++ string getMail()
++ string getTelephone()
++ string getAdresseRue()
++ string getAdresseVille()
++ string getAdresseCp()
++ override string ToString()
+}
+
+class Salle{
+- int id;
+- int nbrPersonne;
+
++ Salle(int id, int nbrPersonne)
++ int getId()
++ int getNbrPersonne()
+}
+
+class Reunion{
+- int superficie;
+
++ Reunion(int id, int nbrPersonne, int superficie) : base(id, nbrPersonne)
++ int getSuperficie()     
++ override string ToString()       
+}
+
+class Mariage{
+- string nom;
++ Mariage(int id, int nbrPersonne, string nom) : base(id, nbrPersonne)
++ string getNom()
++ override string ToString()
+}
+
+
+
+@enduml

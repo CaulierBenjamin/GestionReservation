@@ -21,6 +21,7 @@ namespace GestionReservation.Vue
             labelRue.Text = item.getAdresseRue();
             labelVille.Text = item.getAdresseVille();
             labelCp.Text = item.getAdresseCp();
+            raffraichirReservation();
         }
 
 
@@ -126,7 +127,7 @@ namespace GestionReservation.Vue
                 }
                 
             }
-            
+            raffraichirReservation();
         }
 
         private  void btnRecherche_Click(object sender, EventArgs e)

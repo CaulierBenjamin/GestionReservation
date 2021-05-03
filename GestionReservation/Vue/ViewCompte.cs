@@ -96,16 +96,24 @@ namespace GestionReservation.Vue
 
         private void btnCreer_Click(object sender, EventArgs e)
         {
-
-            Compte item = new Compte(999 ,textBoxNom.Text, textBoxPrenom.Text, textBoxMail.Text
-                ,textBoxTelephone.Text, textBoxAdresseRue.Text, textBoxAdresseVille.Text, textBoxAdresseCp.Text);
-            DialogResult dialogResult = MessageBox.Show("Voulez-vous Ajouter ce compte : "+textBoxNom.Text + " " 
-                                                        + textBoxPrenom.Text,"Validation ajout", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (textBoxNom.Text != "" && textBoxPrenom.Text != "")
             {
-                Requete.AjouterCompte(item);
+                Compte item = new Compte(999, textBoxNom.Text, textBoxPrenom.Text, textBoxMail.Text
+                    , textBoxTelephone.Text, textBoxAdresseRue.Text, textBoxAdresseVille.Text, textBoxAdresseCp.Text);
+                DialogResult dialogResult = MessageBox.Show("Voulez-vous Ajouter ce compte : " + textBoxNom.Text + " "
+                                                            + textBoxPrenom.Text, "Validation ajout",
+                    MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Requete.AjouterCompte(item);
+                }
+
+                RaffraichirListe();
             }
-            RaffraichirListe();
+            else
+            {
+                MessageBox.Show("Il faut au minimum le nom et le prenom");
+            }
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

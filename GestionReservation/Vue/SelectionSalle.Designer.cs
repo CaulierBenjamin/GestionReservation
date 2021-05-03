@@ -278,7 +278,7 @@ namespace GestionReservation.Vue
             this.listBoxReservation.ItemHeight = 24;
             this.listBoxReservation.Location = new System.Drawing.Point(455, 44);
             this.listBoxReservation.Name = "listBoxReservation";
-            this.listBoxReservation.Size = new System.Drawing.Size(272, 148);
+            this.listBoxReservation.Size = new System.Drawing.Size(377, 148);
             this.listBoxReservation.TabIndex = 22;
             // 
             // labelRes
@@ -314,7 +314,7 @@ namespace GestionReservation.Vue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 637);
+            this.ClientSize = new System.Drawing.Size(844, 637);
             this.Controls.Add(this.btnSupprimerReservation);
             this.Controls.Add(this.btnRaffraichirReservation);
             this.Controls.Add(this.labelRes);

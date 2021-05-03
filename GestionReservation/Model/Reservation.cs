@@ -46,7 +46,7 @@ namespace GestionReservation.Model
 
         public override string ToString()
         {
-            return "nombre :" + nombre + "/date : " + dateRes;
+            return "nombre : " + nombre + " | date : " + Convert.ToDateTime(dateRes).ToString("yyyy-MM-dd");
         }
     }
 }

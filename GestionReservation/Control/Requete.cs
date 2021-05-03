@@ -14,10 +14,10 @@ namespace GestionReservation.Control
     
     public class Requete
     {
-        private static string ip = "localhost";
+        private static string ip = "192.168.1.15";
         private static string bdd = "eastmaster";
-        private static string id = "root";
-        private static string password = "root";
+        private static string id = "reservation";
+        private static string password = "reser2";
 
         public static MySqlConnection Connexion()
         {

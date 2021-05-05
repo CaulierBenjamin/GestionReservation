@@ -34,7 +34,10 @@ namespace GestionReservation.Control
                 throw;
             }
         }
-        
+        /// <summary>
+        /// Sort une liste contenant les Compte
+        /// </summary>
+        /// <returns></returns>
         public static List<Compte> ListeDesComptes()
         {
             try

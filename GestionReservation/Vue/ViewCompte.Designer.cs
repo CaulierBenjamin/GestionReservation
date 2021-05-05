@@ -87,7 +87,7 @@ namespace GestionReservation.Vue
             this.labelPrenom.Name = "labelPrenom";
             this.labelPrenom.Size = new System.Drawing.Size(152, 18);
             this.labelPrenom.TabIndex = 5;
-            this.labelPrenom.Text = "Prenom";
+            this.labelPrenom.Text = "Prénom";
             // 
             // textBoxPrenom
             // 
@@ -103,7 +103,7 @@ namespace GestionReservation.Vue
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(152, 18);
             this.labelTelephone.TabIndex = 9;
-            this.labelTelephone.Text = "telephone";
+            this.labelTelephone.Text = "Téléphone";
             // 
             // textBoxTelephone
             // 
@@ -192,7 +192,7 @@ namespace GestionReservation.Vue
             this.btnCreer.Name = "btnCreer";
             this.btnCreer.Size = new System.Drawing.Size(301, 63);
             this.btnCreer.TabIndex = 16;
-            this.btnCreer.Text = "Creer un compte";
+            this.btnCreer.Text = "Créer un compte";
             this.btnCreer.UseVisualStyleBackColor = true;
             this.btnCreer.Click += new System.EventHandler(this.btnCreer_Click);
             // 
@@ -224,7 +224,7 @@ namespace GestionReservation.Vue
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(126, 60);
             this.btnSelect.TabIndex = 19;
-            this.btnSelect.Text = "Selectionner";
+            this.btnSelect.Text = "Sélectionner";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 

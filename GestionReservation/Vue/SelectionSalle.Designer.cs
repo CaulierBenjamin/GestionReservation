@@ -67,7 +67,7 @@ namespace GestionReservation.Vue
             this.radioBtnReunion.Size = new System.Drawing.Size(171, 30);
             this.radioBtnReunion.TabIndex = 0;
             this.radioBtnReunion.TabStop = true;
-            this.radioBtnReunion.Text = "Salle de reunion";
+            this.radioBtnReunion.Text = "Salle de réunion";
             this.radioBtnReunion.UseVisualStyleBackColor = true;
             this.radioBtnReunion.CheckedChanged += new System.EventHandler(this.radioBtnReunion_CheckedChanged);
             // 
@@ -162,7 +162,7 @@ namespace GestionReservation.Vue
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 26);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Prenom :";
+            this.label2.Text = "Prénom :";
             // 
             // label3
             // 
@@ -180,7 +180,7 @@ namespace GestionReservation.Vue
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 26);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Telephone :";
+            this.label4.Text = "Téléphone :";
             // 
             // label5
             // 
@@ -267,7 +267,7 @@ namespace GestionReservation.Vue
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(184, 31);
             this.btnValider.TabIndex = 21;
-            this.btnValider.Text = "Valider la reservation";
+            this.btnValider.Text = "Valider la réservation";
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
@@ -288,7 +288,7 @@ namespace GestionReservation.Vue
             this.labelRes.Name = "labelRes";
             this.labelRes.Size = new System.Drawing.Size(106, 26);
             this.labelRes.TabIndex = 23;
-            this.labelRes.Text = "Reservation :";
+            this.labelRes.Text = "Réservation :";
             // 
             // btnRaffraichirReservation
             // 
@@ -296,7 +296,7 @@ namespace GestionReservation.Vue
             this.btnRaffraichirReservation.Name = "btnRaffraichirReservation";
             this.btnRaffraichirReservation.Size = new System.Drawing.Size(125, 30);
             this.btnRaffraichirReservation.TabIndex = 24;
-            this.btnRaffraichirReservation.Text = "Raffraichir";
+            this.btnRaffraichirReservation.Text = "Rafraichir";
             this.btnRaffraichirReservation.UseVisualStyleBackColor = true;
             this.btnRaffraichirReservation.Click += new System.EventHandler(this.btnRaffraichirReservation_Click);
             // 

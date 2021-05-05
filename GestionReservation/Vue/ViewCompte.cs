@@ -35,7 +35,7 @@ namespace GestionReservation.Vue
             }
             else
             {
-                MessageBox.Show("Aucun element selection");
+                MessageBox.Show("Aucun élément selection");
             }
         }
         
@@ -74,7 +74,7 @@ namespace GestionReservation.Vue
             
             Compte item = new Compte(id, textBoxNom.Text, textBoxPrenom.Text, textBoxMail.Text
                 ,textBoxTelephone.Text, textBoxAdresseRue.Text, textBoxAdresseVille.Text, textBoxAdresseCp.Text);
-            DialogResult dialogResult = MessageBox.Show("Voulez-vous Modifier ce compte : "+_itemGl.getNom() + " " 
+            DialogResult dialogResult = MessageBox.Show("Voulez-vous Modifier ce compte ? "+_itemGl.getNom() + " " 
                                                         + _itemGl.getPrenom(),"Validation Modification", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -85,7 +85,7 @@ namespace GestionReservation.Vue
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Voulez-vous supprimer ce compte : "+_itemGl.getNom() + " "
+            DialogResult dialogResult = MessageBox.Show("Voulez-vous Supprimer ce compte ? "+_itemGl.getNom() + " "
                                                         + _itemGl.getPrenom(),"Validation Suppresion", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -100,7 +100,7 @@ namespace GestionReservation.Vue
             {
                 Compte item = new Compte(999, textBoxNom.Text, textBoxPrenom.Text, textBoxMail.Text
                     , textBoxTelephone.Text, textBoxAdresseRue.Text, textBoxAdresseVille.Text, textBoxAdresseCp.Text);
-                DialogResult dialogResult = MessageBox.Show("Voulez-vous Ajouter ce compte : " + textBoxNom.Text + " "
+                DialogResult dialogResult = MessageBox.Show("Voulez-vous Ajouter ce compte ? " + textBoxNom.Text + " "
                                                             + textBoxPrenom.Text, "Validation ajout",
                     MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -112,7 +112,7 @@ namespace GestionReservation.Vue
             }
             else
             {
-                MessageBox.Show("Il faut au minimum le nom et le prenom");
+                MessageBox.Show("Il faut au minimum le nom et le prénom");
             }
         }
 
@@ -122,5 +122,7 @@ namespace GestionReservation.Vue
             SelectionSalle form2 = new SelectionSalle(item);
             form2.ShowDialog();
         }
+
+        
     }
 }
